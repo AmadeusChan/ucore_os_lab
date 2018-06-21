@@ -1,0 +1,2765 @@
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.badarg.log lab5/.badarg.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.badarg.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.badarg.log	2018-03-18 20:21:08.440759802 +0800
+@@ -0,0 +1,108 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "badarg".
++fork ok.
++badarg pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.badsegment.log lab5/.badsegment.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.badsegment.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.badsegment.log	2018-03-18 20:20:53.901640424 +0800
+@@ -0,0 +1,127 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "badsegment".
++trapframe at 0xc0389fb4
++  edi  0x00000000
++  esi  0x00000000
++  ebp  0xafffffa8
++  oesp 0xc0389fd4
++  ebx  0x00000000
++  edx  0x00000000
++  ecx  0xafffffc0
++  eax  0x00000028
++  ds   0x----0023
++  es   0x----0023
++  fs   0x----0000
++  gs   0x----0000
++  trap 0x0000000d General Protection
++  err  0x00000028
++  eip  0x00800ef7
++  cs   0x----001b
++  flag 0x00000286 PF,SF,IF,IOPL=0
++  esp  0xafffffa0
++  ss   0x----0023
++unhandled trap.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.check_pmm.log lab5/.check_pmm.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.check_pmm.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.check_pmm.log	2018-03-18 15:40:13.932624568 +0800
+@@ -0,0 +1,58 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc0105e42 (phys)
++  edata  0xc0117a36 (phys)
++  end    0xc0118988 (phys)
++Kernel executable memory footprint: 99KB
++ebp:0xc0116f48 eip:0xc0100a52 args:0x00010094 0x00010094 0xc0116f78 0xc01000a9
++    kern/debug/kdebug.c:309: print_stackframe+22
++ebp:0xc0116f58 eip:0xc0100d3e args:0x00000000 0x00000000 0x00000000 0xc0116fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0116f78 eip:0xc01000a9 args:0x00000000 0xc0116fa0 0xffff0000 0xc0116fa4
++    kern/init/init.c:49: grade_backtrace2+19
++ebp:0xc0116f98 eip:0xc01000cb args:0x00000000 0xffff0000 0xc0116fc4 0x00000029
++    kern/init/init.c:54: grade_backtrace1+27
++ebp:0xc0116fb8 eip:0xc01000e8 args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:59: grade_backtrace0+19
++ebp:0xc0116fd8 eip:0xc0100109 args:0x00000000 0x00000000 0x00000000 0xc0105e60
++    kern/init/init.c:64: grade_backtrace+26
++ebp:0xc0116ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:29: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++++ setup timer interrupts
++100 ticks
++End of Test.
++ebp:0xc0116f40 eip:0xc0100a52 args:0xc0116f78 0xc010025f 0xc0116f70 0xc0101e2f
++    kern/debug/kdebug.c:309: print_stackframe+22
++ebp:0xc0116f50 eip:0xc0101888 args:0xc0106191 0xc0116fb4 0x00000000 0x00000400
++    kern/trap/trap.c:18: print_ticks+44
++ebp:0xc0116f70 eip:0xc0101e2f args:0xc0116f9c 0xc0100282 0xc0106176 0xc0116fb4
++    kern/trap/trap.c:167: trap_dispatch+101
++ebp:0xc0116f90 eip:0xc0101eeb args:0xc0116f9c 0x0000807c 0x00010094 0xc0116ff8
++    kern/trap/trap.c:205: trap+16
++ebp:0xc0116ff8 eip:0xc0102977 args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/trap/trapentry.S:24: <unknown>+0
++kernel panic at kern/trap/trap.c:18:
++    EOT: kernel seems ok.
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.check_swap.log lab5/.check_swap.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.check_swap.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.check_swap.log	2018-03-18 15:40:13.932624568 +0800
+@@ -0,0 +1,108 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc0108899 (phys)
++  edata  0xc0120a60 (phys)
++  end    0xc0121b5c (phys)
++Kernel executable memory footprint: 135KB
++ebp:0xc011ff48 eip:0xc0100a61 args:0x00010094 0x00010094 0xc011ff78 0xc01000b8
++    kern/debug/kdebug.c:309: print_stackframe+22
++ebp:0xc011ff58 eip:0xc0100d4d args:0x00000000 0x00000000 0x00000000 0xc011ffc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc011ff78 eip:0xc01000b8 args:0x00000000 0xc011ffa0 0xffff0000 0xc011ffa4
++    kern/init/init.c:57: grade_backtrace2+19
++ebp:0xc011ff98 eip:0xc01000da args:0x00000000 0xffff0000 0xc011ffc4 0x0000002a
++    kern/init/init.c:62: grade_backtrace1+27
++ebp:0xc011ffb8 eip:0xc01000f7 args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:67: grade_backtrace0+19
++ebp:0xc011ffd8 eip:0xc0100118 args:0x00000000 0x00000000 0x00000000 0xc01088a0
++    kern/init/init.c:72: grade_backtrace+26
++ebp:0xc011fff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:32: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31965
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 7
++check_swap() succeeded!
++++ setup timer interrupts
++100 ticks
++End of Test.
++ebp:0xc011ff40 eip:0xc0100a61 args:0xc011ff78 0xc010026e 0xc011ff70 0xc01027bb
++    kern/debug/kdebug.c:309: print_stackframe+22
++ebp:0xc011ff50 eip:0xc01020e2 args:0xc0108cc5 0xc011ffb4 0xffffffff 0xc0128064
++    kern/trap/trap.c:20: print_ticks+44
++ebp:0xc011ff70 eip:0xc01027bb args:0xc011ff9c 0xc0100291 0xc0108caa 0xc011ffb4
++    kern/trap/trap.c:206: trap_dispatch+195
++ebp:0xc011ff90 eip:0xc010287d args:0xc011ff9c 0x0000807c 0x00010094 0xc011fff8
++    kern/trap/trap.c:244: trap+16
++ebp:0xc011fff8 eip:0xc0103309 args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/trap/trapentry.S:24: <unknown>+0
++kernel panic at kern/trap/trap.c:20:
++    EOT: kernel seems ok.
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.check_vmm.log lab5/.check_vmm.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.check_vmm.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.check_vmm.log	2018-03-18 15:40:13.932624568 +0800
+@@ -0,0 +1,106 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc0109a06 (phys)
++  edata  0xc0124a88 (phys)
++  end    0xc0127c04 (phys)
++Kernel executable memory footprint: 159KB
++ebp:0xc0123f48 eip:0xc0100a69 args:0x00010094 0x00010094 0xc0123f78 0xc01000c0
++    kern/debug/kdebug.c:309: print_stackframe+22
++ebp:0xc0123f58 eip:0xc0100d55 args:0x00000000 0x00000000 0x00000000 0xc0123fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0123f78 eip:0xc01000c0 args:0x00000000 0xc0123fa0 0xffff0000 0xc0123fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0123f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0123fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0123fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0123fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc0109a20
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0123ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31956
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++this initproc, pid = 1, name = "init"
++To U: "Hello world!!".
++To U: "en.., Bye, Bye. :)"
++ebp:0xc030bfd8 eip:0xc0100a69 args:0x00000010 0x00000000 0x00000000 0xc01082ea
++    kern/debug/kdebug.c:309: print_stackframe+22
++ebp:0xc030bfe8 eip:0xc0108ab3 args:0x00000000 0xc010b9f8 0x00000000 0x00000010
++    kern/process/proc.c:339: do_exit+10
++kernel panic at kern/process/proc.c:339:
++    process exit!!.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.divzero.log lab5/.divzero.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.divzero.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.divzero.log	2018-03-18 20:20:55.521087337 +0800
+@@ -0,0 +1,127 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "divzero".
++trapframe at 0xc0389fb4
++  edi  0x00000000
++  esi  0x00000000
++  ebp  0xafffffa8
++  oesp 0xc0389fd4
++  ebx  0x00000000
++  edx  0x00000000
++  ecx  0x00000000
++  eax  0x00000001
++  ds   0x----0023
++  es   0x----0023
++  fs   0x----0000
++  gs   0x----0000
++  trap 0x00000000 Divide error
++  err  0x00000000
++  eip  0x00800eff
++  cs   0x----001b
++  flag 0x00000286 PF,SF,IF,IOPL=0
++  esp  0xafffffa0
++  ss   0x----0023
++unhandled trap.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.exit.log lab5/.exit.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.exit.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.exit.log	2018-03-18 20:21:10.044232373 +0800
+@@ -0,0 +1,112 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "exit".
++I am the parent. Forking the child...
++I am parent, fork a child pid 3
++I am the parent, waiting now..
++I am the child.
++waitpid 3 ok.
++exit pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.faultreadkernel.log lab5/.faultreadkernel.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.faultreadkernel.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.faultreadkernel.log	2018-03-18 20:21:00.363448103 +0800
+@@ -0,0 +1,132 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "faultreadkernel".
++not valid addr fac00000, and  can not find it in vma
++trapframe at 0xc0389fb4
++  edi  0x00000000
++  esi  0x00000000
++  ebp  0xafffffa8
++  oesp 0xc0389fd4
++  ebx  0x00000000
++  edx  0x00000000
++  ecx  0xafffffc0
++  eax  0xfac00000
++  ds   0x----0023
++  es   0x----0023
++  fs   0x----0000
++  gs   0x----0000
++  trap 0x0000000e Page Fault
++  err  0x00000005
++  eip  0x00800ef8
++  cs   0x----001b
++  flag 0x00000286 PF,SF,IF,IOPL=0
++  esp  0xafffffa0
++  ss   0x----0023
++killed by kernel.
++ebp:0xc0389f58 eip:0xc0100b40 args:0x00000000 0x00000000 0x00000000 0xfffffffd
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0389f78 eip:0xc0102944 args:0xc0389fb4 0x00000000 0x00000023 0x00000023
++    kern/trap/trap.c:217: trap_dispatch+258
++ebp:0xc0389fa8 eip:0xc0102aab args:0xc0389fb4 0x00000000 0x00000000 0xafffffa8
++    kern/trap/trap.c:296: trap+80
++ebp:0xafffffa8 eip:0xc0103575 args:0x00000000 0x00000000 0x00000000 0x0080030f
++    kern/trap/trapentry.S:24: <unknown>+0
++ebp:0xafffffd8 eip:0x0080030f args:0x00000000 0x00000000 0x00000000 0x00000000
++    user/libs/umain.c:7: umain+10
++kernel panic at kern/trap/trap.c:217:
++    handle user mode pgfault failed. ret=-3
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.faultread.log lab5/.faultread.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.faultread.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.faultread.log	2018-03-18 20:20:58.743993921 +0800
+@@ -0,0 +1,132 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "faultread".
++not valid addr 0, and  can not find it in vma
++trapframe at 0xc0389fb4
++  edi  0x00000000
++  esi  0x00000000
++  ebp  0xafffffa8
++  oesp 0xc0389fd4
++  ebx  0x00000000
++  edx  0x00000000
++  ecx  0xafffffc0
++  eax  0x00000000
++  ds   0x----0023
++  es   0x----0023
++  fs   0x----0000
++  gs   0x----0000
++  trap 0x0000000e Page Fault
++  err  0x00000004
++  eip  0x00800ef8
++  cs   0x----001b
++  flag 0x00000286 PF,SF,IF,IOPL=0
++  esp  0xafffffa0
++  ss   0x----0023
++killed by kernel.
++ebp:0xc0389f58 eip:0xc0100b40 args:0x00000000 0x00000000 0x00000000 0xfffffffd
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0389f78 eip:0xc0102944 args:0xc0389fb4 0x00000000 0x00000023 0x00000023
++    kern/trap/trap.c:217: trap_dispatch+258
++ebp:0xc0389fa8 eip:0xc0102aab args:0xc0389fb4 0x00000000 0x00000000 0xafffffa8
++    kern/trap/trap.c:296: trap+80
++ebp:0xafffffa8 eip:0xc0103575 args:0x00000000 0x00000000 0x00000000 0x0080030f
++    kern/trap/trapentry.S:24: <unknown>+0
++ebp:0xafffffd8 eip:0x0080030f args:0x00000000 0x00000000 0x00000000 0x00000000
++    user/libs/umain.c:7: umain+10
++kernel panic at kern/trap/trap.c:217:
++    handle user mode pgfault failed. ret=-3
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.forktest.log lab5/.forktest.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.forktest.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.forktest.log	2018-03-18 20:21:15.874331321 +0800
+@@ -0,0 +1,139 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "forktest".
++I am child 31
++I am child 30
++I am child 29
++I am child 28
++I am child 27
++I am I am child 25
++I am child 24
++I am child 23
++I am child 22
++I am child 21
++I am child 20
++I am child 19
++I am child 18
++I am child 17
++I am child 16
++I am child 15
++I am child 14
++I am child 13
++I am child 1I am child 11
++I am child 10
++I am child 9
++I am child 8
++I am child 7
++I am child 6
++I am child 5
++I am child 4
++I am child 3
++I am child 2
++I am child 1
++I am child 0
++child 26
++2
++forktest pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.forktree.log lab5/.forktree.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.forktree.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.forktree.log	2018-03-18 20:21:17.529796023 +0800
+@@ -0,0 +1,137 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "forktree".
++0002: I am ''
++0004: I am '1'
++0003: I am '0'
++0008: I am '01'
++0007: I am '00'
++0006: I am '11'
++0005: I am '10'
++000f: I am '101'
++000e: I am '100'
++000d: I am '111'
++000c: I am '110'
++000b: I am '000'
++000a: I am '011'
++0009: I am '010'
++001e: I am '001'
++001d: I am '0101'
++001c: I am '0100'
++001b: I am '0111'
++001a: I am '0110'
++0019: I am '0001'
++0018: I am '0000'
++0017: I am '1101'
++0016: I am '1100'
++0015: I am '1111'
++0014: I am '1110'
++0013: I am '1001'
++0012: I am '1000'
++0011: I am '1011'
++0010: I am '1010'
++0020: I am '0011'
++001f: I am '0010'
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.gitignore lab5/.gitignore
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.gitignore	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.gitignore	2018-03-18 15:40:13.932624568 +0800
+@@ -0,0 +1,8 @@
++bin
++bin/*
++./bin/*
++obj
++obj/*
++./obj/*
++tags
++
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.hello.log lab5/.hello.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.hello.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.hello.log	2018-03-18 20:21:01.962911205 +0800
+@@ -0,0 +1,109 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "hello".
++Hello world!!.
++I am process 2.
++hello pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/debug/assert.h lab5/kern/debug/assert.h
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/debug/assert.h	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/debug/assert.h	2018-03-18 15:40:13.932624568 +0800
+@@ -10,6 +10,7 @@
+     __warn(__FILE__, __LINE__, __VA_ARGS__)
+ 
+ #define panic(...)                                      \
++    print_stackframe(); 				\
+     __panic(__FILE__, __LINE__, __VA_ARGS__)
+ 
+ #define assert(x)                                       \
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/debug/kdebug.c lab5/kern/debug/kdebug.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/debug/kdebug.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/debug/kdebug.c	2018-03-18 15:40:13.932624568 +0800
+@@ -335,7 +335,7 @@
+  * */
+ void
+ print_stackframe(void) {
+-     /* LAB1 YOUR CODE : STEP 1 */
++     /* LAB1 2015011358 : STEP 1 */
+      /* (1) call read_ebp() to get the value of ebp. the type is (uint32_t);
+       * (2) call read_eip() to get the value of eip. the type is (uint32_t);
+       * (3) from 0 .. STACKFRAME_DEPTH
+@@ -347,5 +347,15 @@
+       *           NOTICE: the calling funciton's return addr eip  = ss:[ebp+4]
+       *                   the calling funciton's ebp = ss:[ebp]
+       */
++	uint32_t ebp = read_ebp();
++	uint32_t ra = read_eip(); 
++	for (int i = 0; i < STACKFRAME_DEPTH && ebp != 0; ++ i) {
++		cprintf("ebp:0x%08x eip:0x%08x ", ebp, ra);
++		uint32_t* ptr = (uint32_t *) (ebp + 8);
++		cprintf("args:0x%08x 0x%08x 0x%08x 0x%08x\n", ptr[0], ptr[1], ptr[2], ptr[3]);
++		print_debuginfo(ra - 1);
++		ra = *((uint32_t *) (ebp + 4));
++		ebp = *((uint32_t *) ebp);
++	}
+ }
+ 
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/default_pmm.c lab5/kern/mm/default_pmm.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/default_pmm.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/mm/default_pmm.c	2018-03-18 15:40:13.932624568 +0800
+@@ -9,7 +9,7 @@
+    usually split, and the remainder added to the list as another free block.
+    Please see Page 196~198, Section 8.2 of Yan Wei Min's chinese book "Data Structure -- C programming language"
+ */
+-// LAB2 EXERCISE 1: YOUR CODE
++// LAB2 EXERCISE 1: 2015011358
+ // you should rewrite functions: default_init,default_init_memmap,default_alloc_pages, default_free_pages.
+ /*
+  * Details of FFMA
+@@ -73,6 +73,7 @@
+         assert(PageReserved(p));
+         p->flags = p->property = 0;
+         set_page_ref(p, 0);
++	SetPageProperty(p);
+     }
+     base->property = n;
+     SetPageProperty(base);
+@@ -82,6 +83,7 @@
+ 
+ static struct Page *
+ default_alloc_pages(size_t n) {
++	//cprintf("alloc\n");
+     assert(n > 0);
+     if (n > nr_free) {
+         return NULL;
+@@ -96,6 +98,20 @@
+         }
+     }
+     if (page != NULL) {
++	    for (struct Page *p = page; p != (page + n); ++p) {
++		    ClearPageProperty(p);
++	    }
++	    if (page->property > n) {
++		    struct Page *p = page + n;
++		    p->property = page->property - n;
++		    list_add(&(page->page_link), &(p->page_link));
++	    }
++	    list_del(&(page->page_link));
++	    nr_free -= n;
++	    //ClearPageProperty(page);
++    }
++    /*
++    if (page != NULL) {
+         list_del(&(page->page_link));
+         if (page->property > n) {
+             struct Page *p = page + n;
+@@ -105,38 +121,52 @@
+         nr_free -= n;
+         ClearPageProperty(page);
+     }
++    */
++	//cprintf("\\alloc\n");
+     return page;
+ }
+ 
++static bool
++merge_backward(struct Page *base) {
++	list_entry_t *le = list_next(&(base->page_link));
++	//cprintf("base: %08x le: %08x free_list: %08x\n", &(base->page_link), le, &free_list);
++	if (le == &free_list) return 0;
++	struct Page *p = le2page(le, page_link);
++	if (PageProperty(p) == 0) return 0;
++	if (base + base->property != p) return 0;
++	base->property += p->property;
++	p->property = 0;
++	list_del(le);
++	//cprintf("************ merged! ************\n");
++	return 1;
++}
++
+ static void
+ default_free_pages(struct Page *base, size_t n) {
++	//cprintf("free\n");
+     assert(n > 0);
+     struct Page *p = base;
+-    for (; p != base + n; p ++) {
++    for (; p != (base + n); p ++) {
+         assert(!PageReserved(p) && !PageProperty(p));
+-        p->flags = 0;
++	SetPageProperty(p);
+         set_page_ref(p, 0);
+     }
+     base->property = n;
+-    SetPageProperty(base);
++    //SetPageProperty(base);
+     list_entry_t *le = list_next(&free_list);
+-    while (le != &free_list) {
+-        p = le2page(le, page_link);
+-        le = list_next(le);
+-        if (base + base->property == p) {
+-            base->property += p->property;
+-            ClearPageProperty(p);
+-            list_del(&(p->page_link));
+-        }
+-        else if (p + p->property == base) {
+-            p->property += base->property;
+-            ClearPageProperty(base);
+-            base = p;
+-            list_del(&(p->page_link));
+-        }
+-    }
++    //cprintf("to find position\n");
++    for (; le != (&free_list) && le < (&(base->page_link)); le = list_next(le));
++    //cprintf("found position\n");
++    list_add_before(le, &(base->page_link));
+     nr_free += n;
+-    list_add(&free_list, &(base->page_link));
++    //cprintf("to merge backward\n");
++    while (merge_backward(base));
++    //cprintf("merged backward\n");
++    for (list_entry_t *i = list_prev(&(base->page_link)); i!= &free_list; i = list_prev(i)) {
++	    if (!merge_backward(le2page(i, page_link))) break;
++    }
++	//cprintf("\\free\n");
++	
+ }
+ 
+ static size_t
+@@ -207,6 +237,7 @@
+         count ++, total += p->property;
+     }
+     assert(total == nr_free_pages());
++    //cprintf("count = %08x\n", count);
+ 
+     basic_check();
+ 
+@@ -232,6 +263,7 @@
+     p2 = p0 + 1;
+     free_page(p0);
+     free_pages(p1, 3);
++    //cprintf("%08x %08x\n", PageProperty(p0), p0->property);
+     assert(PageProperty(p0) && p0->property == 1);
+     assert(PageProperty(p1) && p1->property == 3);
+ 
+@@ -255,7 +287,9 @@
+     while ((le = list_next(le)) != &free_list) {
+         struct Page *p = le2page(le, page_link);
+         count --, total -= p->property;
++	//cprintf("Page: %08x %08x %08x size: %08x\n", p, p + p->property, PageProperty(p), p->property);
+     }
++    //cprintf("count = %08x\n", count);
+     assert(count == 0);
+     assert(total == 0);
+ }
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/pmm.c lab5/kern/mm/pmm.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/pmm.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/mm/pmm.c	2018-03-18 20:06:48.220487598 +0800
+@@ -310,6 +310,7 @@
+     page_init();
+ 
+     //use pmm->check to verify the correctness of the alloc/free function in a pmm
++    //cprintf("to check alloc page\n");
+     check_alloc_page();
+ 
+     // create boot_pgdir, an initial page directory(Page Directory Table, PDT)
+@@ -363,7 +364,7 @@
+ // return vaule: the kernel virtual address of this pte
+ pte_t *
+ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
+-    /* LAB2 EXERCISE 2: YOUR CODE
++    /* LAB2 EXERCISE 2: 2015011358
+      *
+      * If you need to visit a physical address, please use KADDR()
+      * please read pmm.h for useful macros
+@@ -395,7 +396,26 @@
+                           // (7) set page directory entry's permission
+     }
+     return NULL;          // (8) return page table entry
+-#endif
++#endif 
++    /*
++    pte_t *pt_addr;
++    if (pgdir[(PDX(la))] & PTE_P) {
++	            pt_addr = (pte_t *)(KADDR(pgdir[(PDX(la))] & 0XFFFFF000)); 
++		            return &pt_addr[(PTX(la))]; 
++			        }*/
++    pde_t *pdep = pgdir + PDX(la); // get the page-dir entry
++    //cprintf("%08x\n", *pdep & PTE_P);
++    pte_t *ptep = ((pte_t *) (KADDR(*pdep & ~0XFFF)) + PTX(la));
++    //cprintf("%08x\n", *ptep & PTE_P);
++    if (*pdep & PTE_P) return ptep; // check if the entry is presented
++    if (!create) return NULL; // check if create a new page-table
++    struct Page* pt = alloc_page(); // allocate a page frame for the page-table
++    if (pt == NULL) return NULL;
++    set_page_ref(pt, 1);
++    ptep = KADDR(page2pa(pt)); // get the virtual address of page pt
++    memset(ptep, 0, PGSIZE);
++    *pdep = (page2pa(pt) & ~0XFFF) | PTE_U | PTE_W | PTE_P;
++    return ptep + PTX(la);
+ }
+ 
+ //get_page - get related Page struct for linear address la using PDT pgdir
+@@ -416,7 +436,7 @@
+ //note: PT is changed, so the TLB need to be invalidate 
+ static inline void
+ page_remove_pte(pde_t *pgdir, uintptr_t la, pte_t *ptep) {
+-    /* LAB2 EXERCISE 3: YOUR CODE
++    /* LAB2 EXERCISE 3: 2015011358
+      *
+      * Please check if ptep is valid, and tlb must be manually updated if mapping is updated
+      *
+@@ -441,6 +461,12 @@
+                                   //(6) flush tlb
+     }
+ #endif
++    assert(*ptep & PTE_P); // check if pte is valid
++    struct Page *page = pte2page(*ptep);
++    page->ref --;
++    if (!page->ref) free_page(page);
++    *ptep &= (~PTE_P);
++    tlb_invalidate(pgdir, la);
+ }
+ 
+ void
+@@ -508,7 +534,7 @@
+         assert(page!=NULL);
+         assert(npage!=NULL);
+         int ret=0;
+-        /* LAB5:EXERCISE2 YOUR CODE
++        /* LAB5:EXERCISE2 2015011358
+          * replicate content of page to npage, build the map of phy addr of nage with the linear addr start
+          *
+          * Some Useful MACROs and DEFINEs, you can use them in below implementation.
+@@ -522,6 +548,11 @@
+          * (3) memory copy from src_kvaddr to dst_kvaddr, size is PGSIZE
+          * (4) build the map of phy addr of  nage with the linear addr start
+          */
++	char *src_kvaddr = page2kva(page);
++	char *dst_kvaddr = page2kva(npage);
++	memcpy(dst_kvaddr, src_kvaddr, PGSIZE);
++	page_insert(to, npage, start, perm);
++
+         assert(ret == 0);
+         }
+         start += PGSIZE;
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/swap_fifo.c lab5/kern/mm/swap_fifo.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/swap_fifo.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/mm/swap_fifo.c	2018-03-18 15:40:13.932624568 +0800
+@@ -49,8 +49,9 @@
+  
+     assert(entry != NULL && head != NULL);
+     //record the page access situlation
+-    /*LAB3 EXERCISE 2: YOUR CODE*/ 
++    /*LAB3 EXERCISE 2: 2015011358*/ 
+     //(1)link the most recent arrival page at the back of the pra_list_head qeueue.
++    list_add_before(head, entry);
+     return 0;
+ }
+ /*
+@@ -64,9 +65,14 @@
+          assert(head != NULL);
+      assert(in_tick==0);
+      /* Select the victim */
+-     /*LAB3 EXERCISE 2: YOUR CODE*/ 
++     /*LAB3 EXERCISE 2: 2015011358*/ 
+      //(1)  unlink the  earliest arrival page in front of pra_list_head qeueue
+      //(2)  set the addr of addr of this page to ptr_page
++     list_entry_t *le = list_next(head);
++     assert(le != head); // assert that the queue is not empty
++     struct Page *page = le2page(le, pra_page_link);
++     list_del(le);
++     *ptr_page = page;
+      return 0;
+ }
+ 
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/vmm.c lab5/kern/mm/vmm.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/mm/vmm.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/mm/vmm.c	2018-03-18 15:40:13.932624568 +0800
+@@ -434,13 +434,13 @@
+     ret = -E_NO_MEM;
+ 
+     pte_t *ptep=NULL;
+-    /*LAB3 EXERCISE 1: YOUR CODE
++    /*LAB3 EXERCISE 1: 2015011358
+     * Maybe you want help comment, BELOW comments can help you finish the code
+     *
+     * Some Useful MACROs and DEFINEs, you can use them in below implementation.
+     * MACROs or Functions:
+     *   get_pte : get an pte and return the kernel virtual address of this pte for la
+-    *             if the PT contians this pte didn't exist, alloc a page for PT (notice the 3th parameter '1')
++    *             if the PT contains this pte didn't exist, alloc a page for PT (notice the 3th parameter '1')
+     *   pgdir_alloc_page : call alloc_page & page_insert functions to allocate a page size memory & setup
+     *             an addr map pa<--->la with linear address la and the PDT pgdir
+     * DEFINES:
+@@ -452,14 +452,14 @@
+     *
+     */
+ #if 0
+-    /*LAB3 EXERCISE 1: YOUR CODE*/
++    /*LAB3 EXERCISE 1: 2015011358*/
+     ptep = ???              //(1) try to find a pte, if pte's PT(Page Table) isn't existed, then create a PT.
+     if (*ptep == 0) {
+                             //(2) if the phy addr isn't exist, then alloc a page & map the phy addr with logical addr
+ 
+     }
+     else {
+-    /*LAB3 EXERCISE 2: YOUR CODE
++    /*LAB3 EXERCISE 2: 2015011358
+     * Now we think this pte is a  swap entry, we should load data from disk to a page with phy addr,
+     * and map the phy addr with logical addr, trigger swap manager to record the access situation of this page.
+     *
+@@ -493,6 +493,22 @@
+         }
+    }
+ #endif
++    ptep = get_pte(mm->pgdir, addr, 1);
++    if (*ptep == 0) {
++	    struct Page* page = pgdir_alloc_page(mm->pgdir, addr, perm);
++    } else {
++	    if (swap_init_ok) {
++		    struct Page *page = NULL;
++		    swap_in(mm, addr, &page);
++		    page_insert(mm->pgdir, page, addr, perm);
++		    swap_map_swappable(mm, addr, page, 1);
++		    page->pra_vaddr = addr; // it seems not reasonble that this statement doesn't exist in page_insert() function
++	    } else {
++            	cprintf("no swap_init_ok but ptep is %x, failed\n",*ptep);
++            	goto failed;
++	    }
++    }
++
+    ret = 0;
+ failed:
+     return ret;
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/process/proc.c lab5/kern/process/proc.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/process/proc.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/process/proc.c	2018-03-18 20:21:15.946307984 +0800
+@@ -87,7 +87,7 @@
+ alloc_proc(void) {
+     struct proc_struct *proc = kmalloc(sizeof(struct proc_struct));
+     if (proc != NULL) {
+-    //LAB4:EXERCISE1 YOUR CODE
++    //LAB4:EXERCISE1 2015011358
+     /*
+      * below fields in proc_struct need to be initialized
+      *       enum proc_state state;                      // Process state
+@@ -103,12 +103,26 @@
+      *       uint32_t flags;                             // Process flag
+      *       char name[PROC_NAME_LEN + 1];               // Process name
+      */
+-     //LAB5 YOUR CODE : (update LAB4 steps)
++     //LAB5 2015011358 : (update LAB4 steps)
+     /*
+      * below fields(add in LAB5) in proc_struct need to be initialized	
+      *       uint32_t wait_state;                        // waiting state
+      *       struct proc_struct *cptr, *yptr, *optr;     // relations between processes
+ 	 */
++	    proc->state = PROC_UNINIT;
++	    proc->pid = -1;
++	    proc->runs = 0;
++	    proc->kstack = 0;
++	    proc->need_resched = 0;
++	    proc->parent = NULL;
++	    proc->mm = NULL;
++	    memset(&proc->context, 0, sizeof(struct context));
++	    proc->tf = NULL;
++	    proc->cr3 = boot_cr3;
++	    proc->flags = 0;
++	    memset(proc->name, 0, PROC_NAME_LEN);
++	    proc->wait_state = 0;
++	    proc->cptr = proc->yptr = proc->optr = NULL;
+     }
+     return proc;
+ }
+@@ -370,7 +384,7 @@
+         goto fork_out;
+     }
+     ret = -E_NO_MEM;
+-    //LAB4:EXERCISE2 YOUR CODE
++    //LAB4:EXERCISE2 2015011358
+     /*
+      * Some Useful MACROs, Functions and DEFINEs, you can use them in below implementation.
+      * MACROs or Functions:
+@@ -396,13 +410,28 @@
+     //    6. call wakeup_proc to make the new child process RUNNABLE
+     //    7. set ret vaule using child proc's pid
+ 
+-	//LAB5 YOUR CODE : (update LAB4 steps)
++	//LAB5 2015011358 : (update LAB4 steps)
+    /* Some Functions
+     *    set_links:  set the relation links of process.  ALSO SEE: remove_links:  lean the relation links of process 
+     *    -------------------
+ 	*    update step 1: set child proc's parent to current process, make sure current process's wait_state is 0
+ 	*    update step 5: insert proc_struct into hash_list && proc_list, set the relation links of process
+     */
++
++    proc = alloc_proc(); // allocate memory for TCB
++    proc->parent = current;
++    assert(current->wait_state == 0);
++    if (proc == NULL) goto fork_out;
++    assert(setup_kstack(proc) == 0); 
++    assert(copy_mm(clone_flags, proc) == 0); 
++    copy_thread(proc, stack, tf);
++    proc->pid = get_pid();
++    hash_proc(proc);
++    //nr_process ++;
++    set_links(proc);
++    //list_add(&proc_list, &proc->list_link);
++    wakeup_proc(proc);
++    ret = proc->pid;
+ 	
+ fork_out:
+     return ret;
+@@ -593,7 +622,7 @@
+     //(6) setup trapframe for user environment
+     struct trapframe *tf = current->tf;
+     memset(tf, 0, sizeof(struct trapframe));
+-    /* LAB5:EXERCISE1 YOUR CODE
++    /* LAB5:EXERCISE1 2015011358
+      * should set tf_cs,tf_ds,tf_es,tf_ss,tf_esp,tf_eip,tf_eflags
+      * NOTICE: If we set trapframe correctly, then the user level process can return to USER MODE from kernel. So
+      *          tf_cs should be USER_CS segment (see memlayout.h)
+@@ -602,6 +631,11 @@
+      *          tf_eip should be the entry point of this binary program (elf->e_entry)
+      *          tf_eflags should be set to enable computer to produce Interrupt
+      */
++    tf->tf_cs = USER_CS;
++    tf->tf_ds = tf->tf_es = tf->tf_ss = USER_DS;
++    tf->tf_esp = USTACKTOP;
++    tf->tf_eip = elf->e_entry;
++    tf->tf_eflags = 0x00000002 | FL_IF; // to enable interrupt
+     ret = 0;
+ out:
+     return ret;
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/kern/trap/trap.c lab5/kern/trap/trap.c
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/kern/trap/trap.c	2018-03-15 16:55:42.068056546 +0800
++++ lab5/kern/trap/trap.c	2018-03-18 19:46:10.593278486 +0800
+@@ -41,7 +41,7 @@
+ /* idt_init - initialize IDT to each of the entry points in kern/trap/vectors.S */
+ void
+ idt_init(void) {
+-     /* LAB1 YOUR CODE : STEP 2 */
++     /* LAB1 2015011358: STEP 2 */
+      /* (1) Where are the entry addrs of each Interrupt Service Routine (ISR)?
+       *     All ISR's entry addrs are stored in __vectors. where is uintptr_t __vectors[] ?
+       *     __vectors[] is in kern/trap/vector.S which is produced by tools/vector.c
+@@ -53,9 +53,21 @@
+       *     You don't know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
+       *     Notice: the argument of lidt is idt_pd. try to find it!
+       */
+-     /* LAB5 YOUR CODE */ 
++     /* LAB5 2015011358 */ 
+      //you should update your lab1 code (just add ONE or TWO lines of code), let user app to use syscall to get the service of ucore
+      //so you should setup the syscall interrupt gate in here
++	extern uintptr_t __vectors[];
++	uint32_t kcs = GD_KTEXT; // kernel OS code segment selector
++	for (int i = 0; i < 256; ++ i) {
++		if (i == T_SYSCALL) {
++			SETGATE(idt[i], 1, kcs, __vectors[i], DPL_USER);
++		} else {
++			SETGATE(idt[i], 0, kcs, __vectors[i], DPL_KERNEL);
++		}
++	}
++	// challenge 1: 
++	SETGATE(idt[T_SWITCH_TOK], 1, kcs, __vectors[T_SWITCH_TOK], DPL_USER);
++	lidt(&idt_pd);
+ }
+ 
+ static const char *
+@@ -182,6 +194,8 @@
+ static volatile int in_swap_tick_event = 0;
+ extern struct mm_struct *check_mm_struct;
+ 
++static uint32_t clock_count = 0;
++
+ static void
+ trap_dispatch(struct trapframe *tf) {
+     char c;
+@@ -213,17 +227,23 @@
+     LAB3 : If some page replacement algorithm(such as CLOCK PRA) need tick to change the priority of pages,
+     then you can add code here. 
+ #endif
+-        /* LAB1 YOUR CODE : STEP 3 */
++        /* LAB1 2015011358 : STEP 3 */
+         /* handle the timer interrupt */
+         /* (1) After a timer interrupt, you should record this event using a global variable (increase it), such as ticks in kern/driver/clock.c
+          * (2) Every TICK_NUM cycle, you can print some info using a funciton, such as print_ticks().
+          * (3) Too Simple? Yes, I think so!
+          */
+-        /* LAB5 YOUR CODE */
++        /* LAB5 2015011358 */
+         /* you should upate you lab1 code (just add ONE or TWO lines of code):
+          *    Every TICK_NUM cycle, you should set current process's current->need_resched = 1
+          */
+-  
++	    clock_count ++;
++	    if (clock_count == TICK_NUM) {
++		    clock_count = 0;
++		    print_ticks();
++		    //print_trapframe(tf);
++	    }
++	    current->need_resched = 1;
+         break;
+     case IRQ_OFFSET + IRQ_COM1:
+         c = cons_getc();
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.pgdir.log lab5/.pgdir.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.pgdir.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.pgdir.log	2018-03-18 20:21:05.229821864 +0800
+@@ -0,0 +1,125 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "pgdir".
++I am 2, print pgdir.
++-------------------- BEGIN --------------------
++PDE(001) 00000000-00400000 00400000 urw
++  |-- PTE(00004) 00200000-00204000 00004000 urw
++PDE(001) 00800000-00c00000 00400000 urw
++  |-- PTE(00002) 00800000-00802000 00002000 ur-
++  |-- PTE(00001) 00802000-00803000 00001000 urw
++PDE(001) afc00000-b0000000 00400000 urw
++  |-- PTE(00004) afffc000-b0000000 00004000 urw
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(00001) fac00000-fac01000 00001000 urw
++  |-- PTE(00001) fac02000-fac03000 00001000 urw
++  |-- PTE(00001) faebf000-faec0000 00001000 urw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++pgdir pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.softint.log lab5/.softint.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.softint.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.softint.log	2018-03-18 20:20:57.140536633 +0800
+@@ -0,0 +1,127 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "softint".
++trapframe at 0xc0389fb4
++  edi  0x00000000
++  esi  0x00000000
++  ebp  0xafffffa8
++  oesp 0xc0389fd4
++  ebx  0x00000000
++  edx  0x00000000
++  ecx  0xafffffc0
++  eax  0x00000000
++  ds   0x----0023
++  es   0x----0023
++  fs   0x----0000
++  gs   0x----0000
++  trap 0x0000000d General Protection
++  err  0x00000072
++  eip  0x00800ef3
++  cs   0x----001b
++  flag 0x00000286 PF,SF,IF,IOPL=0
++  esp  0xafffffa0
++  ss   0x----0023
++unhandled trap.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.spin.log lab5/.spin.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.spin.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.spin.log	2018-03-18 20:21:12.375469290 +0800
+@@ -0,0 +1,113 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "spin".
++I am the parent. Forking the child...
++I am the parent. Running the child...
++I am the child. spinning ...
++I am the parent.  Killing the child...
++kill returns 0
++wait returns 0
++spin may pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.testbss.log lab5/.testbss.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.testbss.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.testbss.log	2018-03-18 20:21:03.618358143 +0800
+@@ -0,0 +1,134 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "testbss".
++Making sure bss works right...
++Yes, good.  Now doing a wild write off the end...
++testbss may pass.
++not valid addr c03020, and  can not find it in vma
++trapframe at 0xc0389fb4
++  edi  0x00000000
++  esi  0x00000000
++  ebp  0xafffffa8
++  oesp 0xc0389fd4
++  ebx  0x00000000
++  edx  0x0080137a
++  ecx  0xaffffed8
++  eax  0x00000012
++  ds   0x----0023
++  es   0x----0023
++  fs   0x----0000
++  gs   0x----0000
++  trap 0x0000000e Page Fault
++  err  0x00000006
++  eip  0x00800fb9
++  cs   0x----001b
++  flag 0x00000286 PF,SF,IF,IOPL=0
++  esp  0xafffff90
++  ss   0x----0023
++killed by kernel.
++ebp:0xc0389f58 eip:0xc0100b40 args:0x00000000 0x00000000 0x00000000 0xfffffffd
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0389f78 eip:0xc0102944 args:0xc0389fb4 0x00000000 0xc0389fa8 0xc0102aec
++    kern/trap/trap.c:217: trap_dispatch+258
++ebp:0xc0389fa8 eip:0xc0102aab args:0xc0389fb4 0x00000000 0x00000000 0xafffffa8
++    kern/trap/trap.c:296: trap+80
++ebp:0xafffffa8 eip:0xc0103575 args:0x00000000 0x00000000 0x00000000 0x0080030f
++    kern/trap/trapentry.S:24: <unknown>+0
++ebp:0xafffffd8 eip:0x0080030f args:0x00000000 0x00000000 0x00000000 0x00000000
++    user/libs/umain.c:7: umain+10
++kernel panic at kern/trap/trap.c:217:
++    handle user mode pgfault failed. ret=-3
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/tools/gdbinit lab5/tools/gdbinit
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/tools/gdbinit	2018-03-15 16:55:42.072056496 +0800
++++ lab5/tools/gdbinit	2018-03-18 15:40:13.932624568 +0800
+@@ -1,3 +1,3 @@
+ file bin/kernel
+ target remote :1234
+-break kern_init
++break default_check
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.waitkill.log lab5/.waitkill.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.waitkill.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.waitkill.log	2018-03-18 20:21:14.238862151 +0800
+@@ -0,0 +1,111 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "waitkill".
++wait child 1.
++child 2.
++child 1.
++kill parent ok.
++kill child1 ok.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file
+diff -r -u -P /home/amadeus/ucore_os_lab/labcodes/lab5/.yield.log lab5/.yield.log
+--- /home/amadeus/ucore_os_lab/labcodes/lab5/.yield.log	1970-01-01 08:00:00.000000000 +0800
++++ lab5/.yield.log	2018-03-18 20:21:06.833290416 +0800
+@@ -0,0 +1,114 @@
++(THU.CST) os is loading ...
++
++Special kernel symbols:
++  entry  0xc010002a (phys)
++  etext  0xc010b877 (phys)
++  edata  0xc019b9f8 (phys)
++  end    0xc019eb64 (phys)
++Kernel executable memory footprint: 635KB
++ebp:0xc0129f48 eip:0xc0100b40 args:0x00010094 0x00010094 0xc0129f78 0xc01000c0
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0129f58 eip:0xc0100e2c args:0x00000000 0x00000000 0x00000000 0xc0129fc8
++    kern/debug/kmonitor.c:129: mon_backtrace+10
++ebp:0xc0129f78 eip:0xc01000c0 args:0x00000000 0xc0129fa0 0xffff0000 0xc0129fa4
++    kern/init/init.c:58: grade_backtrace2+19
++ebp:0xc0129f98 eip:0xc01000e2 args:0x00000000 0xffff0000 0xc0129fc4 0x0000002a
++    kern/init/init.c:63: grade_backtrace1+27
++ebp:0xc0129fb8 eip:0xc01000ff args:0x00000000 0xc010002a 0xffff0000 0xc010006d
++    kern/init/init.c:68: grade_backtrace0+19
++ebp:0xc0129fd8 eip:0xc0100120 args:0x00000000 0x00000000 0x00000000 0xc010b880
++    kern/init/init.c:73: grade_backtrace+26
++ebp:0xc0129ff8 eip:0xc010007a args:0x00000000 0x00000000 0x0000ffff 0x40cf9a00
++    kern/init/init.c:33: kern_init+79
++memory management: default_pmm_manager
++e820map:
++  memory: 0009fc00, [00000000, 0009fbff], type = 1.
++  memory: 00000400, [0009fc00, 0009ffff], type = 2.
++  memory: 00010000, [000f0000, 000fffff], type = 2.
++  memory: 07ee0000, [00100000, 07fdffff], type = 1.
++  memory: 00020000, [07fe0000, 07ffffff], type = 2.
++  memory: 00040000, [fffc0000, ffffffff], type = 2.
++check_alloc_page() succeeded!
++check_pgdir() succeeded!
++check_boot_pgdir() succeeded!
++-------------------- BEGIN --------------------
++PDE(0e0) c0000000-f8000000 38000000 urw
++  |-- PTE(38000) c0000000-f8000000 38000000 -rw
++PDE(001) fac00000-fb000000 00400000 -rw
++  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
++  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
++--------------------- END ---------------------
++use SLOB allocator
++kmalloc_init() succeeded!
++check_vma_struct() succeeded!
++page fault at 0x00000100: K/W [no page found].
++check_pgfault() succeeded!
++check_vmm() succeeded.
++ide 0:      10000(sectors), 'QEMU HARDDISK'.
++ide 1:     262144(sectors), 'QEMU HARDDISK'.
++SWAP: manager = fifo swap manager
++BEGIN check_swap: count 1, total 31837
++setup Page Table for vaddr 0X1000, so alloc a page
++setup Page Table vaddr 0~4MB OVER!
++set up init env for check_swap begin!
++page fault at 0x00001000: K/W [no page found].
++page fault at 0x00002000: K/W [no page found].
++page fault at 0x00003000: K/W [no page found].
++page fault at 0x00004000: K/W [no page found].
++set up init env for check_swap over!
++write Virt Page c in fifo_check_swap
++write Virt Page a in fifo_check_swap
++write Virt Page d in fifo_check_swap
++write Virt Page b in fifo_check_swap
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++write Virt Page b in fifo_check_swap
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++write Virt Page b in fifo_check_swap
++page fault at 0x00002000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
++swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
++write Virt Page c in fifo_check_swap
++page fault at 0x00003000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
++swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
++write Virt Page d in fifo_check_swap
++page fault at 0x00004000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
++swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
++write Virt Page e in fifo_check_swap
++page fault at 0x00005000: K/W [no page found].
++swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
++swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
++write Virt Page a in fifo_check_swap
++page fault at 0x00001000: K/R [no page found].
++swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
++swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
++count is 0, total is 5
++check_swap() succeeded!
++++ setup timer interrupts
++kernel_execve: pid = 2, name = "yield".
++Hello, I am process 2.
++Back in process 2, iteration 0.
++Back in process 2, iteration 1.
++Back in process 2, iteration 2.
++Back in process 2, iteration 3.
++Back in process 2, iteration 4.
++All done in process 2.
++yield pass.
++all user-mode processes have quit.
++init check memory pass.
++ebp:0xc0382fc8 eip:0xc0100b40 args:0xc019eb5c 0xc019eb5c 0x00000002 0x00000000
++    kern/debug/kdebug.c:351: print_stackframe+22
++ebp:0xc0382fe8 eip:0xc0109aa7 args:0x00000000 0x00000000 0x00000000 0x00000010
++    kern/process/proc.c:456: do_exit+68
++kernel panic at kern/process/proc.c:456:
++    initproc exit.
++
++Welcome to the kernel debug monitor!!
++Type 'help' for a list of commands.
++K> 
+\ No newline at end of file

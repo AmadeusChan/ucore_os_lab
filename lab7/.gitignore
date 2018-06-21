@@ -1,0 +1,9 @@
+bin
+bin/*
+./bin/*
+obj
+obj/*
+./obj/*
+tags
+.*.log
+

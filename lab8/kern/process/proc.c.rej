@@ -1,0 +1,60 @@
+--- home/amadeus/ucore_os_lab/labcodes/lab7/kern/process/proc.c	2018-03-15 16:55:42.084056346 +0800
++++ kern/process/proc.c	2018-03-23 10:04:06.827718189 +0800
+@@ -119,6 +119,27 @@
+      *     uint32_t lab6_stride;                       // FOR LAB6 ONLY: the current stride of the process
+      *     uint32_t lab6_priority;                     // FOR LAB6 ONLY: the priority of process, set by lab6_set_priority(uint32_t)
+      */
++	    proc->state = PROC_UNINIT;
++	    proc->pid = -1;
++	    proc->runs = 0;
++	    proc->kstack = 0;
++	    proc->need_resched = 0;
++	    proc->parent = NULL;
++	    proc->mm = NULL;
++	    memset(&proc->context, 0, sizeof(struct context));
++	    proc->tf = NULL;
++	    proc->cr3 = boot_cr3;
++	    proc->flags = 0;
++	    memset(proc->name, 0, PROC_NAME_LEN);
++	    proc->wait_state = 0;
++	    proc->cptr = proc->yptr = proc->optr = NULL;
++	    //lab 6
++	    proc->rq = NULL;
++	    memset(&proc->run_link, 0, sizeof(list_entry_t));
++	    proc->time_slice = 0;
++	    memset(&proc->lab6_run_pool, 0, sizeof(skew_heap_entry_t));
++	    proc->lab6_stride = 0;
++	    proc->lab6_priority = 1;
+     }
+     return proc;
+ }
+@@ -380,7 +401,7 @@
+         goto fork_out;
+     }
+     ret = -E_NO_MEM;
+-    //LAB4:EXERCISE2 YOUR CODE
++    //LAB4:EXERCISE2 2015011358
+     /*
+      * Some Useful MACROs, Functions and DEFINEs, you can use them in below implementation.
+      * MACROs or Functions:
+@@ -620,7 +658,7 @@
+     //(6) setup trapframe for user environment
+     struct trapframe *tf = current->tf;
+     memset(tf, 0, sizeof(struct trapframe));
+-    /* LAB5:EXERCISE1 YOUR CODE
++    /* LAB5:EXERCISE1 2015011358
+      * should set tf_cs,tf_ds,tf_es,tf_ss,tf_esp,tf_eip,tf_eflags
+      * NOTICE: If we set trapframe correctly, then the user level process can return to USER MODE from kernel. So
+      *          tf_cs should be USER_CS segment (see memlayout.h)
+@@ -629,6 +667,11 @@
+      *          tf_eip should be the entry point of this binary program (elf->e_entry)
+      *          tf_eflags should be set to enable computer to produce Interrupt
+      */
++    tf->tf_cs = USER_CS;
++    tf->tf_ds = tf->tf_es = tf->tf_ss = USER_DS;
++    tf->tf_esp = USTACKTOP;
++    tf->tf_eip = elf->e_entry;
++    tf->tf_eflags = 0x00000002 | FL_IF; // to enable interrupt
+     ret = 0;
+ out:
+     return ret;

@@ -1,0 +1,4 @@
+file bin/kernel
+target remote :1234
+b fix_ebp_loop_end
+continue

@@ -1,0 +1,31 @@
+--- home/amadeus/ucore_os_lab/labcodes/lab2/kern/trap/trap.c	2018-03-15 16:55:42.060056646 +0800
++++ kern/trap/trap.c	2018-03-15 16:25:42.563288871 +0800
+@@ -146,6 +158,8 @@
+     cprintf("  eax  0x%08x\n", regs->reg_eax);
+ }
+ 
++static uint32_t clock_count = 0;
++
+ /* trap_dispatch - dispatch based on what type of trap occurred */
+ static void
+ trap_dispatch(struct trapframe *tf) {
+@@ -153,12 +167,18 @@
+ 
+     switch (tf->tf_trapno) {
+     case IRQ_OFFSET + IRQ_TIMER:
+-        /* LAB1 YOUR CODE : STEP 3 */
++        /* LAB1 2015011358 : STEP 3 */
+         /* handle the timer interrupt */
+         /* (1) After a timer interrupt, you should record this event using a global variable (increase it), such as ticks in kern/driver/clock.c
+          * (2) Every TICK_NUM cycle, you can print some info using a funciton, such as print_ticks().
+          * (3) Too Simple? Yes, I think so!
+          */
++	    clock_count ++;
++	    if (clock_count == TICK_NUM) {
++		    clock_count = 0;
++		    print_ticks();
++		    //print_trapframe(tf);
++	    }
+         break;
+     case IRQ_OFFSET + IRQ_COM1:
+         c = cons_getc();
